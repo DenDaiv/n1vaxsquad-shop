@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Корзина</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Корзина — N1vaXSquad Tech</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header class="header">
+    <div class="logo">N1vaXSquad Tech</div>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="about.html">О нас</a>
+      <a href="cart.html">Корзина</a>
+    </nav>
+    <div class="cart-badge">🛒 <span id="cart-count">0</span></div>
+  </header>
 
-<header class="header">
-  <div class="logo">Корзина</div>
-  <nav class="nav">
-    <a href="index.html">Главная</a>
-    <a href="catalog.html">Каталог</a>
-    <a href="about.html">О нас</a>
-    <a href="cart.html">Корзина</a>
-  </nav>
-  <div class="cart">🛒 <span id="cart-count">0</span></div>
-</header>
+  <main class="container">
+    <h2 class="section-title">Ваши товары</h2>
+    <div id="cart-items" class="cart-list"></div>
+  </main>
 
-<main class="products">
-  <h2>Ваши товары</h2>
-  <div id="cart-items" class="product-grid"></div>
-</main>
+  <footer class="container" style="text-align:center;padding:18px 0;color:#7ea6c7;">
+    © 2025 N1vaXSquad Tech
+  </footer>
 
-<footer class="footer">
-  © 2025 N1vaXSquad Tech
-</footer>
-
-<script src="products.js"></script>
-<script src="script.js"></script>
+  <script src="products.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
