@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>О нас</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>О нас — N1vaXSquad Tech</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="about-body">
+<body class="">
+  <header class="header">
+    <div class="logo">N1vaXSquad Tech</div>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="about.html">О нас</a>
+      <a href="cart.html">Корзина</a>
+    </nav>
+    <div class="cart-badge">🛒 <span id="cart-count">0</span></div>
+  </header>
 
-<div class="about-panel">
-  <h2>N1vaXSquad</h2>
-  <p>
-    Мы — N1vaXSquad, команда, создающая технику, сайты и проекты для комьюнити.
-    Это наш официальный магазин техники.
-  </p>
+  <main class="container">
+    <h2 class="section-title">О нас</h2>
+    <div class="about-block">
+      <p><strong>N1vaXSquad Tech</strong> — небольшая команда энтузиастов, которая тестирует и подбирает технику для геймеров, стримеров и простых пользователей. Мы стараемся давать честные описания, проверять характеристики и предлагать удобные решения.</p>
 
-  <button class="btn-back" onclick="history.back()">← Назад</button>
-</div>
+      <p style="margin-top:10px;">На сайте вы найдете: подробные карточки товаров, простую корзину, возможность открыть страницу каждого товара и быстро его добавить в корзину. В следующих обновлениях планируем добавить фильтры, поиск, загрузку реальных изображений и оплату.</p>
 
+      <p style="margin-top:10px;">По вопросам сотрудничества и предложениям пишите: <strong>n1vaxsquad@example.com</strong></p>
+    </div>
+  </main>
+
+  <footer class="container" style="text-align:center;padding:18px 0;color:#7ea6c7;">
+    © 2025 N1vaXSquad Tech
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
