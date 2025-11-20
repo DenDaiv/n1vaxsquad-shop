@@ -108,3 +108,17 @@ body {
   .product-image { width:140px; height:90px; }
   .hero-illustration { height:160px; }
 }
+
+/* Исправление вылезающего текста */
+.product-card {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: 300px; /* фикс ширина карточек */
+}
+
+.product-card p {
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
