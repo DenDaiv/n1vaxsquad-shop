@@ -1,51 +1,36 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TechMarket</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
     <header>
-        <h1>TechMarket</h1>
+        <h1>TechMarket — Магазин техники</h1>
         <nav>
             <a href="#">Главная</a>
-            <a href="#products">Товары</a>
-            <a href="#about">О нас</a>
-            <a href="#cart">Корзина</a>
+            <a href="#">О нас</a>
+            <a href="#">Корзина</a>
         </nav>
     </header>
 
-    <section class="hero">
-        <h2>Лучший магазин техники</h2>
-        <p>Покупай крутые гаджеты по низким ценам!</p>
-    </section>
-
-    <section id="products" class="products-section">
-        <h2>Наши товары</h2>
-        <div id="product-list" class="product-grid"></div>
-    </section>
-
-    <section id="about" class="about-section">
+    <section class="about">
         <h2>О нас</h2>
         <p>
-            Мы — магазин современной техники. У нас вы найдёте смартфоны, ноутбуки,
-            аксессуары, умные устройства и многое другое.  
-            Все товары проходят проверку качества и имеют гарантию.  
-            Доставка по всей стране в течение 1–3 дней.
+            Мы — лучший магазин техники, где можно купить телефоны, ноутбуки,
+            консоли, комплектующие и другие устройства. Каждый товар проверен,
+            имеет гарантию и полностью готов к использованию. Мы работаем быстро
+            и честно — качество прежде всего.
         </p>
     </section>
 
-    <section id="cart" class="cart-section">
-        <h2>Корзина</h2>
-        <div id="cart-items"></div>
-        <button id="clear-cart" class="clear-btn">Очистить корзину</button>
+    <section class="products" id="product-list">
+        <!-- Карточки товара будут добавляться через JS -->
     </section>
 
     <script src="products.js"></script>
-    <script src="script.js"></script>
-
 </body>
 </html>
