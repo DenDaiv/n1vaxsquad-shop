@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>N1vaXSquad Tech — Главная</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMarket</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="logo">N1vaXSquad Tech</div>
-    <nav class="nav">
-      <a href="index.html">Главная</a>
-      <a href="catalog.html">Каталог</a>
-      <a href="about.html">О нас</a>
-      <a href="cart.html">Корзина</a>
-    </nav>
-    <div class="cart-badge">🛒 <span id="cart-count">0</span></div>
-  </header>
 
-  <main class="container">
+    <header>
+        <h1>TechMarket</h1>
+        <nav>
+            <a href="#">Главная</a>
+            <a href="#products">Товары</a>
+            <a href="#about">О нас</a>
+            <a href="#cart">Корзина</a>
+        </nav>
+    </header>
+
     <section class="hero">
-      <div class="hero-left">
-        <h1>Техника для игр, работы и творчества</h1>
-        <p>Добро пожаловать в официальный магазин N1vaXSquad. Здесь — ноутбуки, смартфоны, наушники и аксессуары, которые мы тестируем сами.</p>
-        <p style="margin-top:12px;"><a href="catalog.html" class="btn btn-open">Перейти в каталог</a></p>
-      </div>
-      <div class="hero-illustration">Баннер / промо-изображение</div>
+        <h2>Лучший магазин техники</h2>
+        <p>Покупай крутые гаджеты по низким ценам!</p>
     </section>
 
-    <section>
-      <div class="section-title">Популярные товары</div>
-      <div id="popular-products" class="product-grid"></div>
+    <section id="products" class="products-section">
+        <h2>Наши товары</h2>
+        <div id="product-list" class="product-grid"></div>
     </section>
 
-    <section style="margin-top:22px;">
-      <div class="section-title">Про нас</div>
-      <div class="about-block">
-        <p><strong>N1vaXSquad Tech</strong> — команда энтузиастов, которая собирает и тестирует технику, записывает обзоры и делает удобные подборки. Мы выбираем продукты по соотношению цена/качество и предлагаем простую навигацию, честные описания и быстрое добавление в корзину. Работаем над улучшением каталога и планируем добавить фильтры и оплату в следующих релизах.</p>
-        <p style="margin-top:10px;">Если хочешь предложить товар или сотрудничество — пиши на <strong>n1vaxsquad@example.com</strong>.</p>
-      </div>
+    <section id="about" class="about-section">
+        <h2>О нас</h2>
+        <p>
+            Мы — магазин современной техники. У нас вы найдёте смартфоны, ноутбуки,
+            аксессуары, умные устройства и многое другое.  
+            Все товары проходят проверку качества и имеют гарантию.  
+            Доставка по всей стране в течение 1–3 дней.
+        </p>
     </section>
 
-  </main>
+    <section id="cart" class="cart-section">
+        <h2>Корзина</h2>
+        <div id="cart-items"></div>
+        <button id="clear-cart" class="clear-btn">Очистить корзину</button>
+    </section>
 
-  <footer class="container" style="text-align:center;padding:18px 0;color:#7ea6c7;">
-    © 2025 N1vaXSquad Tech
-  </footer>
+    <script src="products.js"></script>
+    <script src="script.js"></script>
 
-  <script src="products.js"></script>
-  <script src="script.js"></script>
 </body>
 </html>
