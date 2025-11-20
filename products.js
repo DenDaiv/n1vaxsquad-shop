@@ -29,7 +29,7 @@ const products = [
     imageUrl: "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/l/s/ls27dg500eixci.jpg/w_600"
   },
   {
-    id: 5\,
+    id: 5,
     name: "Портативна акустика JBL GO 4 Black",
     desc: "Мощный бас, Bluetooth, USB Type-C, 12 часов автономии.",
     price: 1 499,
