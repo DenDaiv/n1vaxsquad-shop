@@ -1,14 +1,17 @@
-/* Общие стили */
+/* ===== ОБЩИЕ ===== */
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
-  background: #111; /* темный фон */
+  background: #111;
   color: #e0e0e0;
 }
 
-a { text-decoration: none; color: inherit; }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-/* HEADER */
+/* ===== HEADER ===== */
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -18,7 +21,7 @@ a { text-decoration: none; color: inherit; }
   border-bottom: 2px solid #ffcc00;
 }
 
-.site-header .logo {
+.logo {
   font-size: 22px;
   font-weight: bold;
   color: #ffcc00;
@@ -27,113 +30,166 @@ a { text-decoration: none; color: inherit; }
 .site-nav a {
   margin-left: 20px;
   color: #ccc;
-  font-weight: 500;
 }
 
-.site-nav a:hover { color: #ffcc00; }
+.site-nav a:hover {
+  color: #ffcc00;
+}
 
-/* HERO */
+/* ===== HERO (ГЛАВНАЯ) ===== */
 .hero {
   display: flex;
   gap: 40px;
   padding: 60px 32px;
   align-items: center;
-  justify-content: center;
 }
 
-.hero-text h1 { font-size: 36px; color: #ffcc00; margin-bottom: 12px; }
-.hero-text p { color: #ccc; margin-bottom: 16px; max-width: 500px; }
+.hero-text h1 {
+  font-size: 36px;
+  color: #ffcc00;
+}
+
+.hero-text p {
+  color: #ccc;
+  max-width: 500px;
+}
 
 .btn-main {
+  display: inline-block;
+  margin-top: 16px;
   background: #ffcc00;
   color: #111;
-  padding: 12px 24px;
+  padding: 12px 26px;
   border-radius: 999px;
   font-weight: 600;
 }
 
 .hero-image {
-  width: 300px;
+  width: 320px;
   height: 200px;
   background: #222;
-  border: 2px solid #333;
-  border-radius: 12px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #999;
+  color: #888;
 }
 
-/* PRODUCTS GRID */
-.products-section { padding: 40px 32px; }
-.products-section h2 { color: #ffcc00; margin-bottom: 20px; font-size: 24px; }
-
+/* ===== СЕТКА ГЛАВНОЙ ===== */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 32px;
 }
 
+/* ===== СЕТКА КАТАЛОГА ===== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* ===== КАРТОЧКА ===== */
 .product-card {
   background: #1e1e1e;
-  border: 1px solid #333;
-  border-radius: 12px;
-  padding: 16px;
+  border-radius: 16px;
+  padding: 14px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  height: 100%;
 }
 
-.product-card img {
+/* ===== КАРТИНКА (КВАДРАТ) ===== */
+.product-image {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 12px;
+  aspect-ratio: 1 / 1; /* 🔥 квадрат */
+  border-radius: 12px;
+  overflow: hidden;
+  background: #111;
 }
 
-.product-card h3 { color: #ffcc00; margin-bottom: 8px; font-size: 18px; }
-.product-card p { color: #ccc; margin-bottom: 12px; font-size: 14px; }
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* НЕ растягивается */
+}
 
-.product-card .price {
+/* ===== ИНФО ===== */
+.product-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-top: 10px;
+}
+
+.product-info h3 {
+  font-size: 16px;
+  color: #ffcc00;
+}
+
+.product-info p {
+  font-size: 13px;
+  color: #ccc;
+  flex-grow: 1;
+}
+
+/* ===== НИЗ ===== */
+.product-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.price {
   font-weight: bold;
   color: #ffcc00;
-  margin-bottom: 8px;
 }
 
-.product-card .btn-add {
-  background: #ffcc00;
-  color: #111;
-  padding: 8px 16px;
+/* ===== КНОПКИ ===== */
+.btn {
+  padding: 6px 16px;
   border-radius: 999px;
-  font-weight: 600;
   border: none;
   cursor: pointer;
+  font-weight: 600;
 }
 
-/* ABOUT SECTION */
-.about-section {
-  padding: 40px 32px;
-  background: #1a1a1a;
-  border-top: 2px solid #ffcc00;
-  border-bottom: 2px solid #ffcc00;
+.btn-add {
+  background: #ffcc00;
+  color: #111;
 }
 
-.about-section h2 { color: #ffcc00; margin-bottom: 12px; }
+.btn-open {
+  background: transparent;
+  border: 1px solid #ffcc00;
+  color: #ffcc00;
+}
 
-/* FOOTER */
+/* ===== CART ===== */
+.cart-row {
+  display: flex;
+  gap: 12px;
+  background: #1e1e1e;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+/* ===== FOOTER ===== */
 footer {
   text-align: center;
   padding: 20px;
   background: #1a1a1a;
   border-top: 2px solid #ffcc00;
   color: #ffcc00;
-  font-weight: 500;
 }
 
-/* Адаптив */
-@media(max-width: 900px){
-  .hero { flex-direction: column; }
-  .hero-image { width: 80%; height: 180px; margin-top: 20px; }
+/* ===== АДАПТИВ ===== */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
 }
