@@ -34,5 +34,12 @@ const products = [
     desc: "Мощный бас, Bluetooth, USB Type-C, 12 часов автономии.",
     price: 1499,
     imageUrl: "https://cdn.comfy.ua/media/catalog/product/6/6/66103a64ae9d1.jpg"
-  }
+  },
+  { 
+    id: 6,
+    name: "Гарнітура бездротова ігрова Logitech G435 Black",
+    desc: "USB Type-C, Гарантійний термін 2 роки, Бренд Logitech, є мікрофон.",
+    price: 1499,
+    imageUrl: "https://cdn.comfy.ua/media/catalog/product/6/6/66103a64ae9d1.jpg"
+  },
 ];
