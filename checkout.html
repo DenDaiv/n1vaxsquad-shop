@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Корзина — N1vaXSquad Tech</title>
+  <title>Оформление заказа — N1vaXSquad Tech</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,18 +13,24 @@
   <nav class="site-nav">
     <a href="index.html">Главная</a>
     <a href="catalog.html">Каталог</a>
-    <a href="about.html">О нас</a>
     <a href="cart.html">Корзина 🛒 <span id="cart-count">0</span></a>
   </nav>
 </header>
 
 <main class="container">
-  <h2 class="section-title">Корзина</h2>
-  <div id="cart-items"></div>
+  <h2 class="section-title">Оформление заказа</h2>
 
-  <a href="checkout.html" class="btn btn-add" style="margin-top:16px;display:inline-block;">
-    Оформить заказ
-  </a>
+  <div class="checkout-box">
+    <form id="checkout-form">
+      <input type="text" placeholder="Ваше имя" required>
+      <input type="email" placeholder="Email" required>
+      <input type="tel" placeholder="Телефон" required>
+
+      <div id="checkout-total" class="checkout-total"></div>
+
+      <button class="btn btn-add" type="submit">Подтвердить заказ</button>
+    </form>
+  </div>
 </main>
 
 <footer>

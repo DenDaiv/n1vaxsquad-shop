@@ -1,10 +1,12 @@
-/* ====== Корзина ====== */
-
+/* ================== CART STORAGE ================== */
 const STORAGE_KEY = "n1vaxsquad_cart_v1";
 
 function loadCart() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
-  catch { return []; }
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  } catch {
+    return [];
+  }
 }
 
 function saveCart(cart) {
@@ -13,36 +15,33 @@ function saveCart(cart) {
 
 function updateCartCount() {
   const span = document.getElementById("cart-count");
-  if (!span) return;
-  span.textContent = loadCart().length;
+  if (span) span.textContent = loadCart().length;
 }
 
-/* Добавить */
+/* ================== CART ACTIONS ================== */
 function addToCart(id) {
   const cart = loadCart();
   cart.push(id);
   saveCart(cart);
   updateCartCount();
-  alert("Товар добавлен в корзину!");
+  alert("Товар добавлен в корзину");
 }
 
-/* Удалить */
 function removeFromCart(id) {
   const cart = loadCart();
-  const idx = cart.indexOf(id);
-  if (idx !== -1) cart.splice(idx, 1);
+  const index = cart.indexOf(id);
+  if (index !== -1) cart.splice(index, 1);
   saveCart(cart);
   updateCartCount();
   renderCartPage();
 }
 
-/* ====== HTML карточки ====== */
-
+/* ================== PRODUCT CARD ================== */
 function createProductCardHTML(p, open = false) {
   return `
     <div class="product-card">
       <div class="product-image">
-        <img src="${p.imageUrl}" style="width:100%;height:100%;object-fit:cover;border-radius:6px;">
+        <img src="${p.imageUrl}">
       </div>
       <div class="product-info">
         <h3>${p.name}</h3>
@@ -60,7 +59,7 @@ function createProductCardHTML(p, open = false) {
   `;
 }
 
-/* ====== Рендер главной ====== */
+/* ================== MAIN PAGE ================== */
 function renderPopular() {
   const root = document.getElementById("popular-products");
   if (!root) return;
@@ -71,7 +70,7 @@ function renderPopular() {
   });
 }
 
-/* ====== Рендер каталога ====== */
+/* ================== CATALOG ================== */
 function renderCatalog() {
   const root = document.getElementById("catalog-grid");
   if (!root) return;
@@ -82,7 +81,7 @@ function renderCatalog() {
   });
 }
 
-/* ====== Рендер товара ====== */
+/* ================== PRODUCT PAGE ================== */
 function renderProductPage() {
   const box = document.getElementById("product-page-box");
   if (!box) return;
@@ -97,12 +96,12 @@ function renderProductPage() {
 
   box.innerHTML = `
     <div class="product-page">
-      <div class="product-image" style="height:300px;">
-        <img src="${p.imageUrl}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+      <div class="product-image large">
+        <img src="${p.imageUrl}">
       </div>
-      <h2 style="margin-top:14px;">${p.name}</h2>
-      <p style="color:#9fb8d6;margin-top:8px;">${p.desc}</p>
-      <div style="display:flex;align-items:center;gap:12px;margin-top:16px;">
+      <h2>${p.name}</h2>
+      <p class="desc">${p.desc}</p>
+      <div class="product-bottom">
         <div class="price">${p.price} ₴</div>
         <button class="btn btn-add" onclick="addToCart(${p.id})">Добавить в корзину</button>
       </div>
@@ -110,7 +109,7 @@ function renderProductPage() {
   `;
 }
 
-/* ====== Рендер корзины ====== */
+/* ================== CART PAGE ================== */
 function renderCartPage() {
   const root = document.getElementById("cart-items");
   if (!root) return;
@@ -132,29 +131,51 @@ function renderCartPage() {
 
     root.insertAdjacentHTML("beforeend", `
       <div class="cart-row">
-        <img src="${p.imageUrl}" style="width:120px;height:80px;object-fit:cover;border-radius:6px;">
-        <div style="flex:1;padding-left:10px;">
-          <div style="font-weight:700;">${p.name}</div>
-          <div style="color:#9fb8d6;">${p.desc}</div>
+        <img class="cart-image" src="${p.imageUrl}">
+        <div class="cart-info">
+          <div class="cart-title">${p.name}</div>
+          <div class="cart-price">${p.price} ₴</div>
         </div>
-        <div>
-          <div style="font-weight:700;">${p.price} ₴</div>
-          <button class="btn btn-remove" style="margin-top:6px;" onclick="removeFromCart(${p.id})">Убрать</button>
-        </div>
+        <button class="btn btn-remove" onclick="removeFromCart(${p.id})">✕</button>
       </div>
     `);
   });
 
   root.insertAdjacentHTML("beforeend", `
-    <div class="cart-summary">Всего: ${total} ₴</div>
+    <div class="cart-summary">Итого: ${total} ₴</div>
   `);
 }
 
-/* ====== Инициализация ====== */
+/* ================== CHECKOUT ================== */
+function renderCheckout() {
+  const totalBox = document.getElementById("checkout-total");
+  const form = document.getElementById("checkout-form");
+  if (!totalBox || !form) return;
+
+  const cart = loadCart();
+  let total = 0;
+
+  cart.forEach(id => {
+    const p = products.find(x => x.id === id);
+    if (p) total += p.price;
+  });
+
+  totalBox.textContent = `К оплате: ${total} ₴`;
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    alert("Заказ успешно оформлен!");
+    localStorage.removeItem(STORAGE_KEY);
+    location.href = "index.html";
+  });
+}
+
+/* ================== INIT ================== */
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
   renderPopular();
   renderCatalog();
   renderProductPage();
   renderCartPage();
+  renderCheckout();
 });
