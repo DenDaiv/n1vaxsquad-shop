@@ -83,6 +83,7 @@ a {
   padding: 14px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .product-image {
@@ -91,6 +92,7 @@ a {
   border-radius: 12px;
   overflow: hidden;
   background: #111;
+  position: relative;
 }
 
 .product-image.large {
@@ -104,6 +106,20 @@ a {
   object-fit: contain;
 }
 
+/* ===== SALE BADGE ===== */
+.sale-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #ff4c4c;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+/* ===== PRODUCT INFO ===== */
 .product-info h3 {
   color: #ffcc00;
   font-size: 16px;
@@ -221,5 +237,10 @@ footer {
   .hero {
     flex-direction: column;
     text-align: center;
+  }
+
+  .products-grid,
+  .product-grid {
+    padding: 16px;
   }
 }

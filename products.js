@@ -38,8 +38,17 @@ const products = [
   { 
     id: 6,
     name: "Гарнітура бездротова ігрова Logitech G435 Black",
-    desc: "USB Type-C, Гарантійний термін 2 роки, Бренд Logitech, є мікрофон.",
+    desc: "USB Type-C, Гарантійний термін 2 роки, Бренд Logitech є мікрофон.",
     price: 1499,
-    imageUrl: "https://cdn.comfy.ua/media/catalog/product/6/6/66103a64ae9d1.jpg"
+    imageUrl: "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/a/l/alice_atf_black_10_1.jpg/f_auto"
   },
+  {
+    id: 7,
+    name: "Миша дротова ігрова Razer Death Adder Essential White",
+    desc: "Миша геймерська, Роздільна здатність оптичного сенсора миші (dpi) 6400 dpi, є підсвічування",
+    price: 1399,
+    discount: 21,
+    imageUrl: "https://scdn.comfy.ua/89fc351a-22e7-41ee-8321-f8a9356ca351/https://cdn.comfy.ua/media/catalog/product/2/1/216899953.jpg/w_600"
+  }
 ];
+

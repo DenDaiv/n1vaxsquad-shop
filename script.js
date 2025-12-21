@@ -38,6 +38,9 @@ function removeFromCart(id) {
 
 /* ================== PRODUCT CARD ================== */
 function createProductCardHTML(p, open = false) {
+  const finalPrice = p.discount ? Math.round(p.price * (1 - p.discount / 100)) : p.price;
+  const oldPriceHTML = p.discount ? `<div class="old-price" style="text-decoration: line-through; color: #ccc;">${p.price} ₴</div>` : "";
+
   return `
     <div class="product-card">
       <div class="product-image">
@@ -45,9 +48,12 @@ function createProductCardHTML(p, open = false) {
       </div>
       <div class="product-info">
         <h3>${p.name}</h3>
-        <p>${p.desc}</p>
+        <p class="desc">${p.desc}</p>
         <div class="product-bottom">
-          <div class="price">${p.price} ₴</div>
+          <div class="price-block">
+            ${oldPriceHTML}
+            <div class="price">${finalPrice} ₴</div>
+          </div>
           ${
             open
               ? `<a class="btn btn-open" href="product.html?id=${p.id}">Открыть</a>`
@@ -63,7 +69,6 @@ function createProductCardHTML(p, open = false) {
 function renderPopular() {
   const root = document.getElementById("popular-products");
   if (!root) return;
-
   root.innerHTML = "";
   products.slice(0, 4).forEach(p => {
     root.insertAdjacentHTML("beforeend", createProductCardHTML(p));
@@ -74,7 +79,6 @@ function renderPopular() {
 function renderCatalog() {
   const root = document.getElementById("catalog-grid");
   if (!root) return;
-
   root.innerHTML = "";
   products.forEach(p => {
     root.insertAdjacentHTML("beforeend", createProductCardHTML(p, true));
@@ -88,11 +92,13 @@ function renderProductPage() {
 
   const id = Number(new URLSearchParams(location.search).get("id"));
   const p = products.find(x => x.id === id);
-
   if (!p) {
     box.innerHTML = "<p>Товар не найден</p>";
     return;
   }
+
+  const finalPrice = p.discount ? Math.round(p.price * (1 - p.discount / 100)) : p.price;
+  const oldPriceHTML = p.discount ? `<div class="old-price" style="text-decoration: line-through; color: #ccc;">${p.price} ₴</div>` : "";
 
   box.innerHTML = `
     <div class="product-page">
@@ -102,7 +108,10 @@ function renderProductPage() {
       <h2>${p.name}</h2>
       <p class="desc">${p.desc}</p>
       <div class="product-bottom">
-        <div class="price">${p.price} ₴</div>
+        <div class="price-block">
+          ${oldPriceHTML}
+          <div class="price">${finalPrice} ₴</div>
+        </div>
         <button class="btn btn-add" onclick="addToCart(${p.id})">Добавить в корзину</button>
       </div>
     </div>
@@ -127,14 +136,20 @@ function renderCartPage() {
     const p = products.find(x => x.id === id);
     if (!p) return;
 
-    total += p.price;
+    const finalPrice = p.discount ? Math.round(p.price * (1 - p.discount / 100)) : p.price;
+    total += finalPrice;
+
+    const oldPriceHTML = p.discount ? `<div class="old-price" style="text-decoration: line-through; color: #ccc;">${p.price} ₴</div>` : "";
 
     root.insertAdjacentHTML("beforeend", `
       <div class="cart-row">
         <img class="cart-image" src="${p.imageUrl}">
         <div class="cart-info">
           <div class="cart-title">${p.name}</div>
-          <div class="cart-price">${p.price} ₴</div>
+          <div class="cart-price">
+            ${oldPriceHTML}
+            <div>${finalPrice} ₴</div>
+          </div>
         </div>
         <button class="btn btn-remove" onclick="removeFromCart(${p.id})">✕</button>
       </div>
@@ -146,30 +161,6 @@ function renderCartPage() {
   `);
 }
 
-/* ================== CHECKOUT ================== */
-function renderCheckout() {
-  const totalBox = document.getElementById("checkout-total");
-  const form = document.getElementById("checkout-form");
-  if (!totalBox || !form) return;
-
-  const cart = loadCart();
-  let total = 0;
-
-  cart.forEach(id => {
-    const p = products.find(x => x.id === id);
-    if (p) total += p.price;
-  });
-
-  totalBox.textContent = `К оплате: ${total} ₴`;
-
-  form.addEventListener("submit", e => {
-    e.preventDefault();
-    alert("Заказ успешно оформлен!");
-    localStorage.removeItem(STORAGE_KEY);
-    location.href = "index.html";
-  });
-}
-
 /* ================== INIT ================== */
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
@@ -177,5 +168,4 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCatalog();
   renderProductPage();
   renderCartPage();
-  renderCheckout();
 });
