@@ -262,16 +262,20 @@ footer {
 .social {
   width: 42px;
   height: 42px;
-  border: 1px solid #fff;
+  border: 1px solid #fff;          /* белый бордер всегда */
   border-radius: 50%;
-  background-color: transparent;
+  background-color: transparent;   /* без заливки */
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20px;
-  transition: all 0.25s ease;
+  filter: invert(1);               /* иконка белая */
+  transition: 
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    filter 0.25s ease;
 }
 
-/* Иконки (чёрные) */
+/* SVG-иконки */
 .social.tiktok {
   background-image: url("https://simpleicons.org/icons/tiktok.svg");
 }
@@ -284,8 +288,9 @@ footer {
   background-image: url("https://simpleicons.org/icons/twitch.svg");
 }
 
-/* Hover-эффект */
+/* ===== HOVER ===== */
 .social:hover {
-  background-color: #fff;
+  background-color: #fff;   /* белая заливка */
+  filter: invert(0);        /* иконка чёрная */
   transform: scale(1.12);
 }
