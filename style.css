@@ -250,3 +250,42 @@ footer {
     padding: 16px;
   }
 }
+
+/* ===== FOOTER SOCIALS ===== */
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.social {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+  transition: all 0.25s ease;
+}
+
+/* Иконки (чёрные) */
+.social.tiktok {
+  background-image: url("https://simpleicons.org/icons/tiktok.svg");
+}
+
+.social.youtube {
+  background-image: url("https://simpleicons.org/icons/youtube.svg");
+}
+
+.social.twitch {
+  background-image: url("https://simpleicons.org/icons/twitch.svg");
+}
+
+/* Hover-эффект */
+.social:hover {
+  background-color: #fff;
+  transform: scale(1.12);
+}
