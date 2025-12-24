@@ -288,6 +288,11 @@ footer {
   background-image: url("https://simpleicons.org/icons/twitch.svg");
 }
 
+.social.telegram {
+  background-image: url("https://simpleicons.org/icons/telegram.svg");
+}
+
+
 /* ===== HOVER ===== */
 .social:hover {
   background-color: #fff;   /* белая заливка */
